@@ -9,27 +9,25 @@ import colorSharp2 from "../assets/img/color-sharp2.png"
 
 export const Projects = () => {
     const projects = [
-        {
-            title: "Moulin d'Escapat",
-            description: "Design and Development",
-            imgUrl: moulinDescapatPlaceholder,
-        },
-
-        {
-            title: "ForgeFlow",
-            description: "Brainstorming, Design and Development",
-            imgUrl: forgeFlow,
-
-            //This was a class project for ArcelorMittal, they wanted to see what development options were in the "Teams" application. So we developed an algorithm that could select questions within a constructed forum and place it within FAQs
-        }, 
-
-        {
-            title: "Space Invaders",
-            description: "Design and Development",
-            imgUrl: spaceInvaders,
-            //This was a personal project where I recreated the classic Space Invaders game using modern web technologies. I played around with JavaScript to create random spawning and played around with velocity to make the game more dynamic.
-        }
-    ];
+    {
+        title: "Moulin d'Escapat",
+        description: "Design and Development",
+        imgUrl: moulinDescapatPlaceholder,
+        githubUrl: "https://github.com/Codekmt/MoulinDescapat",
+    },
+    {
+        title: "ForgeFlow",
+        description: "Brainstorming, Design and Development",
+        imgUrl: forgeFlow,
+        githubUrl: "https://github.com/Codekmt/Team-Skaz",
+    }, 
+    {
+        title: "Space Invaders",
+        description: "Design and Development",
+        imgUrl: spaceInvaders,
+        githubUrl: "https://main--spaceinvadz.netlify.app",
+    }
+];
     {
     }
     return (
@@ -38,7 +36,7 @@ export const Projects = () => {
                 <Row> 
                     <Col>
                         <h2>Projects</h2>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br></br> Lorem Ipsum has been the industry's standard dummy text.</p>
+                        <p>A selection of projects that highlight my skills in web development, design, and problem-solving.<br></br> Currently finishing the Moulin d'Escapat page.</p>
                         <TabContainer id="projects-tabs" defaultActiveKey="first">
                         <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
                             <Nav.Item> 

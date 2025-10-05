@@ -48,8 +48,12 @@ export const Banner = () => {
                     <Col xs={12} md={6} xl={7}>
                     <span className="tagLine">Welcome to my portfolio</span>
                     <h1>Hi I'm Keanu <br /><span className="wrap">{text}</span></h1>
-                    <p>Lorem Ipsum is simply dummy textof the orinting etc industry</p>
-                    <button onClick={() => console.log('connect')}>Let's connect<ArrowRightCircle size={25}></ArrowRightCircle> </button>
+                    <p>Hello! After completing a full stack development course, I’m diving into my first project and loving the experience. I’m now eager to find my first job or internship to further sharpen my skills and contribute to meaningful projects.</p>
+                    <a href="#contact">
+                        <button>
+                        Let's connect <ArrowRightCircle size={25} />
+                        </button>
+                    </a>
                     </Col> 
                     <Col xs={12} md={6} xl={5}>
                       <img src={headerImg} alt='header image'></img>
