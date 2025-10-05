@@ -362,10 +362,19 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   border-radius: 0 55px 55px 0;
 }
 .proj-imgbx {
+  margin-top: 40px;
+  height: auto;
   position: relative;
   border-radius: 30px;
   overflow: hidden;
   margin-bottom: 24px;
+  height: 240px;
+}
+.proj-imgbx img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .proj-imgbx::before {
   content: "";
@@ -412,4 +421,17 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   width: 35%;
   right: 0;
   z-index: -4;
+}
+
+
+@media (max-width: 1024px) {
+  .proj-imgbx {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (max-width: 640px) {
+  .proj-imgbx {
+    aspect-ratio: 1 / 1;
+  }
 }

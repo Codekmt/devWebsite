@@ -11,20 +11,23 @@ export const Projects = () => {
     const projects = [
         {
             title: "Moulin d'Escapat",
-            description: "Design and development",
+            description: "Design and Development",
             imgUrl: moulinDescapatPlaceholder,
         },
 
         {
             title: "ForgeFlow",
-            description: "Brainstorming, design, development",
+            description: "Brainstorming, Design and Development",
             imgUrl: forgeFlow,
+
+            //This was a class project for ArcelorMittal, they wanted to see what development options were in the "Teams" application. So we developed an algorithm that could select questions within a constructed forum and place it within FAQs
         }, 
 
         {
             title: "Space Invaders",
-            description: "Design, Development",
+            description: "Design and Development",
             imgUrl: spaceInvaders,
+            //This was a personal project where I recreated the classic Space Invaders game using modern web technologies. I played around with JavaScript to create random spawning and played around with velocity to make the game more dynamic.
         }
     ];
     {
@@ -37,15 +40,15 @@ export const Projects = () => {
                         <h2>Projects</h2>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br></br> Lorem Ipsum has been the industry's standard dummy text.</p>
                         <TabContainer id="projects-tabs" defaultActiveKey="first">
-                        <Nav variant="pills" defaultActiveKey="/home">
+                        <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
                             <Nav.Item> 
-                                <Nav.Link eventKey="first">Moulin d'Escapat</Nav.Link>
+                                <Nav.Link eventKey="first">Tab One</Nav.Link>
                             </Nav.Item>
                             <Nav.Item>
-                                <Nav.Link eventKey="second">ForgeFlow</Nav.Link>
+                                <Nav.Link eventKey="second">Tab Two</Nav.Link>
                             </Nav.Item>
                             <Nav.Item>
-                                <Nav.Link eventKey="third">Space Invaders</Nav.Link>
+                                <Nav.Link eventKey="third">Tab Three</Nav.Link>
                             </Nav.Item>
                         </Nav>
                         <Tab.Content>
@@ -61,10 +64,10 @@ export const Projects = () => {
                                 </Row>
                             </Tab.Pane>
                             <Tab.Pane eventKey="second">
-                                <p>This was a class project for ArcelorMittal, they wanted to see what development options were in the "Teams" application. So we developed an algorithm that could select questions within a constructed forum and place it within FAQs</p>
+                                <p>Coming soon</p>
                             </Tab.Pane>
                             <Tab.Pane eventKey="third">
-                                <p>This was a personal project where I recreated the classic Space Invaders game using modern web technologies. I played around with JavaScript to create random spawning and played around with velocity to make the game more dynamic.</p>
+                                <p>Coming soon</p>
                             </Tab.Pane>
                         </Tab.Content>
 
