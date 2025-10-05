@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
-import contactImg from "../assets/img/contact-img.svg"; // replace with your image
+import contactImg from "../assets/img/contact-img.svg";
 
 export const Contact = () => {
   const [formDetails, setFormDetails] = useState({
@@ -50,7 +50,6 @@ export const Contact = () => {
       <Container>
         <h2 className="text-center mb-5">Let's Connect</h2>
         <Row className="align-items-center">
-          {/* Left Image */}
           <Col md={6} className="mb-4 mb-md-0 text-center">
             <img 
               src={contactImg} 
@@ -59,7 +58,6 @@ export const Contact = () => {
             />
           </Col>
 
-          {/* Right Form */}
           <Col md={6}>
             <Form onSubmit={handleSubmit} className="p-4 shadow-lg rounded bg-white">
               <Row>
