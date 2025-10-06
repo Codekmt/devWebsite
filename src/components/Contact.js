@@ -3,6 +3,7 @@ import { Container, Row, Col, Button, Form } from "react-bootstrap";
 import contactImg from "../assets/img/contact-img.svg";
 
 export const Contact = () => {
+  const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
   const [formDetails, setFormDetails] = useState({
     firstName: "",
     lastName: "",
@@ -23,7 +24,7 @@ export const Contact = () => {
     setStatus({});
 
     try {
-      const response = await fetch("http://localhost:5000/api/contact", {
+      const response = await fetch(`${API_URL}/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formDetails),
