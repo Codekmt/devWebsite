@@ -9,13 +9,10 @@ app.use(express.json());
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.send("Backend is running!");
-});
-
 router.post("/contact", (req, res) => {
   const { firstName, lastName, email, phone, message } = req.body;
   const name = `${firstName} ${lastName}`;
+  const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
   const mail = {
     from: name,
