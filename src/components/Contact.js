@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
-import contactImg from "../assets/img/contact-img.svg"; // replace with your image
+import contactImg from "../assets/img/contact-img.svg";
 
 export const Contact = () => {
+  const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000"
   const [formDetails, setFormDetails] = useState({
     firstName: "",
     lastName: "",
@@ -23,7 +24,7 @@ export const Contact = () => {
     setStatus({});
 
     try {
-      const response = await fetch("http://localhost:5000/api/contact", {
+      const response = await fetch(`${API_URL}/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formDetails),
@@ -50,7 +51,6 @@ export const Contact = () => {
       <Container>
         <h2 className="text-center mb-5">Let's Connect</h2>
         <Row className="align-items-center">
-          {/* Left Image */}
           <Col md={6} className="mb-4 mb-md-0 text-center">
             <img 
               src={contactImg} 
@@ -59,7 +59,6 @@ export const Contact = () => {
             />
           </Col>
 
-          {/* Right Form */}
           <Col md={6}>
             <Form onSubmit={handleSubmit} className="p-4 shadow-lg rounded bg-white">
               <Row>

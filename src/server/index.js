@@ -7,15 +7,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Use "/api" prefix for all routes
 const router = express.Router();
 
-// Test GET route
 router.get("/", (req, res) => {
   res.send("Backend is running!");
 });
 
-// POST route for contact form
 router.post("/contact", (req, res) => {
   const { firstName, lastName, email, phone, message } = req.body;
   const name = `${firstName} ${lastName}`;
@@ -39,12 +36,11 @@ router.post("/contact", (req, res) => {
   });
 });
 
-// Nodemailer transporter
 const contactEmail = nodemailer.createTransport({
   service: "gmail",
   auth: {
     user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS, // Use Gmail App Password
+    pass: process.env.EMAIL_PASS,
   },
 });
 
