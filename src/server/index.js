@@ -1,26 +1,26 @@
 const express = require("express");
 const cors = require("cors");
 const nodemailer = require("nodemailer");
-require("dotenv").config({ path: "./password.env" }); 
+require("dotenv").config({ path: "./password.env" });
 
 const app = express();
 
 app.use(cors({
-  origin: "https://keanumtei.netlify.app" 
+  origin: "https://keanumtei.netlify.app"
 }));
 app.use(express.json());
 
 const contactEmail = nodemailer.createTransport({
-  service: "gmail",
+  service: "SendGrid",
   auth: {
-    user: process.env.EMAIL_USER, 
-    pass: process.env.EMAIL_PASS, 
-  },
+    user: process.env.SENDGRID_USER,
+    pass: process.env.SENDGRID_PASS
+  }
 });
 
 contactEmail.verify((error) => {
   if (error) console.log("❌ Nodemailer error:", error);
-  else console.log("✅ Nodemailer ready to send emails");
+  else console.log("✅ Nodemailer ready to send emails via SendGrid");
 });
 
 app.post("/api/contact", async (req, res) => {
@@ -33,7 +33,7 @@ app.post("/api/contact", async (req, res) => {
   const name = `${firstName} ${lastName}`;
   const mail = {
     from: `"${name}" <${email}>`,
-    to: process.env.EMAIL_USER,
+    to: process.env.SENDGRID_TO,
     subject: "Contact Form Submission - Portfolio",
     html: `
       <p><strong>Name:</strong> ${name}</p>
