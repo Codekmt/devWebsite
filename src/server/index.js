@@ -3,14 +3,9 @@ const cors = require("cors");
 const nodemailer = require("nodemailer");
 require("dotenv").config({ path: "./password.env" });
 
-const t = nodemailer.createTransport({
-  service: "gmail",
-  auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS }
-});
-t.verify().then(() => console.log("✅ Works!")).catch(console.error);
-
 const app = express();
-app.use(cors());
+
+app.use(cors({ origin: "https://keanumtei.netlify.app" }));
 app.use(express.json());
 
 const contactEmail = nodemailer.createTransport({
@@ -22,7 +17,7 @@ const contactEmail = nodemailer.createTransport({
 });
 
 contactEmail.verify((error) => {
-  if (error) console.log(error);
+  if (error) console.log("❌", error);
   else console.log("✅ Ready to send emails!");
 });
 
@@ -42,15 +37,14 @@ app.post("/api/contact", (req, res) => {
     `,
   };
 
-   contactEmail.sendMail(mail, (error, info) => {
-  if (error) {
-    console.error("❌ Email error:", error);
-    return res.status(500).json({ success: false, message: "Failed to send email." });
-  }
-  console.log("✅ Email sent:", info.response);
-  res.status(200).json({ success: true, message: "Message sent successfully!" });
+  contactEmail.sendMail(mail, (error, info) => {
+    if (error) {
+      console.error("❌ Email error:", error);
+      return res.status(500).json({ success: false, message: "Failed to send email." });
+    }
+    console.log("✅ Email sent:", info.response);
+    res.status(200).json({ success: true, message: "Message sent successfully!" });
+  });
 });
-})
-
 
 app.listen(5000, () => console.log("🚀 Server running on port 5000"));
