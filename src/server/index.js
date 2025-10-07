@@ -3,35 +3,15 @@ const cors = require("cors");
 const nodemailer = require("nodemailer");
 require("dotenv").config({ path: "./password.env" });
 
+const t = nodemailer.createTransport({
+  service: "gmail",
+  auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS }
+});
+t.verify().then(() => console.log("✅ Works!")).catch(console.error);
+
 const app = express();
 app.use(cors());
 app.use(express.json());
-
-const router = express.Router();
-
-router.post("/contact", (req, res) => {
-  const { firstName, lastName, email, phone, message } = req.body;
-  const name = `${firstName} ${lastName}`;
-  const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
-
-  const mail = {
-    from: name,
-    to: process.env.EMAIL_USER,
-    subject: "Contact Form Submission - Portfolio",
-    html: `<p><strong>Name:</strong> ${name}</p>
-           <p><strong>Email:</strong> ${email}</p>
-           <p><strong>Phone:</strong> ${phone}</p>
-           <p><strong>Message:</strong> ${message}</p>`
-  };
-
-  contactEmail.sendMail(mail, (error, info) => {
-    if (error) {
-      console.error(error);
-      return res.status(500).json({ success: false, message: "Failed to send email." });
-    }
-    res.status(200).json({ success: true, message: "Message sent successfully!" });
-  });
-});
 
 const contactEmail = nodemailer.createTransport({
   service: "gmail",
@@ -43,9 +23,34 @@ const contactEmail = nodemailer.createTransport({
 
 contactEmail.verify((error) => {
   if (error) console.log(error);
-  else console.log("Ready to send emails!");
+  else console.log("✅ Ready to send emails!");
 });
 
-app.use("/api", router);
+app.post("/api/contact", (req, res) => {
+  const { firstName, lastName, email, phone, message } = req.body;
+  const name = `${firstName} ${lastName}`;
 
-app.listen(5000, () => console.log("Server running on port 5000"));
+  const mail = {
+    from: name,
+    to: process.env.EMAIL_USER,
+    subject: "Contact Form Submission - Portfolio",
+    html: `
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Phone:</strong> ${phone}</p>
+      <p><strong>Message:</strong> ${message}</p>
+    `,
+  };
+
+   contactEmail.sendMail(mail, (error, info) => {
+  if (error) {
+    console.error("❌ Email error:", error);
+    return res.status(500).json({ success: false, message: "Failed to send email." });
+  }
+  console.log("✅ Email sent:", info.response);
+  res.status(200).json({ success: true, message: "Message sent successfully!" });
+});
+})
+
+
+app.listen(5000, () => console.log("🚀 Server running on port 5000"));
