@@ -3,7 +3,7 @@ import { Container, Row, Col, Button, Form } from "react-bootstrap";
 import contactImg from "../assets/img/contact-img.svg";
 
 export const Contact = () => {
-  const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+  const API_URL = "https://personalportfolio-kgm7.onrender.com/api/contact";
   const [formDetails, setFormDetails] = useState({
     firstName: "",
     lastName: "",
