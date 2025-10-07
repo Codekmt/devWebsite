@@ -1,31 +1,20 @@
 const express = require("express");
 const cors = require("cors");
-const nodemailer = require("nodemailer");
+const sgMail = require("@sendgrid/mail");
 require("dotenv").config({ path: "./password.env" });
 
 const app = express();
 app.use(cors({ origin: "https://keanumtei.netlify.app" }));
 app.use(express.json());
 
-const transporter = nodemailer.createTransport({
-  service: "SendGrid",
-  auth: {
-    user: "apikey",
-    pass: process.env.SENDGRID_PASS,
-  },
-});
-
-transporter.verify((error) => {
-  if (error) console.error("❌ SendGrid not ready:", error);
-  else console.log("✅ SendGrid ready to send");
-});
+sgMail.setApiKey(process.env.SENDGRID_PASS);
 
 app.post("/api/contact", async (req, res) => {
   const { firstName, lastName, email, phone, message } = req.body;
   const name = `${firstName} ${lastName}`;
-  const mail = {
-    from: email,
+  const msg = {
     to: process.env.SENDGRID_TO,
+    from: process.env.SENDGRID_TO,
     subject: "Portfolio Contact Form",
     html: `
       <p><strong>Name:</strong> ${name}</p>
@@ -36,12 +25,12 @@ app.post("/api/contact", async (req, res) => {
   };
 
   try {
-    await transporter.sendMail(mail);
+    await sgMail.send(msg);
     res.status(200).json({ success: true, message: "Message sent successfully!" });
   } catch (err) {
-    console.error("❌ SendGrid error:", err);
+    console.error("❌ SendGrid API error:", err);
     res.status(500).json({ success: false, message: "Failed to send email." });
   }
 });
 
-app.listen(5000, () => console.log("🚀 Server running on port 5000"));
+app.listen(5000, () => conso
