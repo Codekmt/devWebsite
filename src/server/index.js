@@ -4,54 +4,44 @@ const nodemailer = require("nodemailer");
 require("dotenv").config({ path: "./password.env" });
 
 const app = express();
-
-app.use(cors({
-  origin: "https://keanumtei.netlify.app"
-}));
+app.use(cors({ origin: "https://keanumtei.netlify.app" }));
 app.use(express.json());
 
-const contactEmail = nodemailer.createTransport({
+const transporter = nodemailer.createTransport({
   service: "SendGrid",
   auth: {
-    user: process.env.SENDGRID_USER,
-    pass: process.env.SENDGRID_PASS
-  }
+    user: "apikey",
+    pass: process.env.SENDGRID_PASS,
+  },
 });
 
-contactEmail.verify((error) => {
-  if (error) console.log("❌ Nodemailer error:", error);
-  else console.log("✅ Nodemailer ready to send emails via SendGrid");
+transporter.verify((error) => {
+  if (error) console.error("❌ SendGrid not ready:", error);
+  else console.log("✅ SendGrid ready to send");
 });
 
 app.post("/api/contact", async (req, res) => {
   const { firstName, lastName, email, phone, message } = req.body;
-
-  if (!firstName || !lastName || !email || !message) {
-    return res.status(400).json({ success: false, message: "Missing required fields." });
-  }
-
   const name = `${firstName} ${lastName}`;
   const mail = {
-    from: `"${name}" <${email}>`,
+    from: email,
     to: process.env.SENDGRID_TO,
-    subject: "Contact Form Submission - Portfolio",
+    subject: "Portfolio Contact Form",
     html: `
       <p><strong>Name:</strong> ${name}</p>
       <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Phone:</strong> ${phone || "N/A"}</p>
+      <p><strong>Phone:</strong> ${phone}</p>
       <p><strong>Message:</strong> ${message}</p>
     `,
   };
 
   try {
-    const info = await contactEmail.sendMail(mail);
-    console.log("✅ Email sent:", info.response);
+    await transporter.sendMail(mail);
     res.status(200).json({ success: true, message: "Message sent successfully!" });
-  } catch (error) {
-    console.error("❌ Failed to send email:", error);
+  } catch (err) {
+    console.error("❌ SendGrid error:", err);
     res.status(500).json({ success: false, message: "Failed to send email." });
   }
 });
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+app.listen(5000, () => console.log("🚀 Server running on port 5000"));
