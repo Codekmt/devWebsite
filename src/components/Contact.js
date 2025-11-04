@@ -1,7 +1,34 @@
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
 import contactImg from "../assets/img/contact-img.svg";
+import emailjs from '@emailjs/browser';
+import { useRef, useState } from "react";
 
 export const Contact = () => {
+  const form = useRef();
+  const [status, setStatus] = useState(""); // success/error message
+  const [isSending, setIsSending] = useState(false); // disable button while sending
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setIsSending(true);
+    setStatus("");
+
+    emailjs
+      .sendForm('service_2uegegq', 'template_vsgzr9z', form.current, 'HDievMl-ne2D3qvdF')
+      .then(
+        () => {
+          setStatus("Thank you! I’ll get back to you soon.");
+          form.current.reset(); // clear form
+          setIsSending(false);
+        },
+        (error) => {
+          console.error('FAILED...', error.text);
+          setStatus("Oops! Something went wrong. Please try again.");
+          setIsSending(false);
+        }
+      );
+  };
+
   return (
     <section id="contact" style={{ padding: "80px 0" }}>
       <Container>
@@ -16,14 +43,7 @@ export const Contact = () => {
           </Col>
 
           <Col md={6}>
-            <Form
-              name="contact"
-              method="POST"
-              data-netlify="true"
-              data-netlify-recaptcha="true"
-              action="/thank-you"  
-              className="p-4 shadow-lg rounded bg-white"
-            >
+            <Form ref={form} onSubmit={sendEmail}>
               <input type="hidden" name="form-name" value="contact" />
 
               <Row>
@@ -56,12 +76,17 @@ export const Contact = () => {
                 <Form.Control as="textarea" name="message" rows={5} placeholder="Message" required />
               </Form.Group>
 
-
-              <div data-netlify-recaptcha="true" className="mb-3" />
-
               <div className="d-grid mb-3">
-                <Button type="submit" variant="dark">Send</Button>
+                <Button type="submit" variant="dark" disabled={isSending}>
+                  {isSending ? "Sending..." : "Send"}
+                </Button>
               </div>
+
+              {status && (
+                <p className={status.includes("Thank you") ? "text-success" : "text-danger"}>
+                  {status}
+                </p>
+              )}
             </Form>
           </Col>
         </Row>
