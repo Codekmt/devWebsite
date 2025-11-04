@@ -3,56 +3,7 @@ import { Container, Row, Col, Button, Form } from "react-bootstrap";
 import contactImg from "../assets/img/contact-img.svg";
 
 export const Contact = () => {
-  const [formDetails, setFormDetails] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    message: ""
-  });
-  const [buttonText, setButtonText] = useState("Send");
-  const [status, setStatus] = useState({});
-
-  const onFormUpdate = (field, value) => {
-    setFormDetails({ ...formDetails, [field]: value });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setButtonText("Sending...");
-    setStatus({});
-
-    try {
-      const formData = new FormData();
-      for (const field in formDetails) {
-        formData.append(field, formDetails[field]);
-      }
-      formData.append("form-name", "contact");
-
-      const response = await fetch("/", {
-        method: "POST",
-        body: formData,
-      });
-
-      if (response.ok) {
-        setStatus({ success: true, message: "Message sent successfully!" });
-        setFormDetails({
-          firstName: "",
-          lastName: "",
-          email: "",
-          phone: "",
-          message: ""
-        });
-      } else {
-        setStatus({ success: false, message: "Something went wrong. Try again." });
-      }
-    } catch (error) {
-      console.error(error);
-      setStatus({ success: false, message: "Network error. Could not send message." });
-    }
-
-    setButtonText("Send");
-  };
+  const [submitted, setSubmitted] = useState(false); // Track successful submission
 
   return (
     <section id="contact" style={{ padding: "80px 0" }}>
@@ -69,13 +20,14 @@ export const Contact = () => {
 
           <Col md={6}>
             <Form
-              onSubmit={handleSubmit}
               name="contact"
               method="POST"
               data-netlify="true"
               data-netlify-recaptcha="true"
+              onSubmit={() => setSubmitted(true)} 
               className="p-4 shadow-lg rounded bg-white"
             >
+
               <input type="hidden" name="form-name" value="contact" />
 
               <Row>
@@ -85,8 +37,6 @@ export const Contact = () => {
                       type="text"
                       placeholder="First Name"
                       name="firstName"
-                      value={formDetails.firstName}
-                      onChange={(e) => onFormUpdate("firstName", e.target.value)}
                       required
                     />
                   </Form.Group>
@@ -97,8 +47,6 @@ export const Contact = () => {
                       type="text"
                       placeholder="Last Name"
                       name="lastName"
-                      value={formDetails.lastName}
-                      onChange={(e) => onFormUpdate("lastName", e.target.value)}
                       required
                     />
                   </Form.Group>
@@ -112,21 +60,13 @@ export const Contact = () => {
                       type="email"
                       placeholder="Email Address"
                       name="email"
-                      value={formDetails.email}
-                      onChange={(e) => onFormUpdate("email", e.target.value)}
                       required
                     />
                   </Form.Group>
                 </Col>
                 <Col md={6}>
                   <Form.Group className="mb-3">
-                    <Form.Control
-                      type="tel"
-                      placeholder="Phone Number"
-                      name="phone"
-                      value={formDetails.phone}
-                      onChange={(e) => onFormUpdate("phone", e.target.value)}
-                    />
+                    <Form.Control type="tel" placeholder="Phone Number" name="phone" />
                   </Form.Group>
                 </Col>
               </Row>
@@ -137,8 +77,6 @@ export const Contact = () => {
                   rows={5}
                   placeholder="Message"
                   name="message"
-                  value={formDetails.message}
-                  onChange={(e) => onFormUpdate("message", e.target.value)}
                   required
                 />
               </Form.Group>
@@ -147,13 +85,13 @@ export const Contact = () => {
 
               <div className="d-grid mb-3">
                 <Button variant="dark" type="submit">
-                  {buttonText}
+                  Send
                 </Button>
               </div>
 
-              {status.message && (
-                <p className={status.success ? "text-success" : "text-danger"}>
-                  {status.message}
+              {submitted && (
+                <p className="text-success">
+                  Thank you! I’ll get back to you soon.
                 </p>
               )}
             </Form>
