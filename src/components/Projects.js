@@ -39,14 +39,14 @@ export const Projects = () => {
                         <p>A selection of projects that highlight my skills in web development, design, and problem-solving.<br></br> Currently finishing the Moulin d'Escapat page.</p>
                         <TabContainer id="projects-tabs" defaultActiveKey="first">
                         <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
-                            <Nav.Item> 
-                                <Nav.Link eventKey="first">Tab One</Nav.Link>
+                            <Nav.Item>
+                            <Nav.Link eventKey="first">Now</Nav.Link>
                             </Nav.Item>
                             <Nav.Item>
-                                <Nav.Link eventKey="second">Tab Two</Nav.Link>
+                            <Nav.Link eventKey="second">Next</Nav.Link>
                             </Nav.Item>
                             <Nav.Item>
-                                <Nav.Link eventKey="third">Tab Three</Nav.Link>
+                            <Nav.Link eventKey="third">Later</Nav.Link>
                             </Nav.Item>
                         </Nav>
                         <Tab.Content>
