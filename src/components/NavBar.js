@@ -41,9 +41,9 @@ export const NavBar = () => {
             </Nav>
             <span className="navbar-text">
               <div className="social-icon">
-                <a href="https://www.linkedin.com/in/keanu-milho-teixeira-1259962b9" target="_blank"><img src={navIcon1} alt="" /></a>
-                <a href="https://www.facebook.com/keanu.m.teixeira" target="_blank"><img src={navIcon2} alt="" /></a>
-                <a href="https://www.instagram.com/keanumtei" target="_blank"><img src={navIcon3} alt="" /></a>
+                <a href="https://www.linkedin.com/in/keanu-milho-teixeira-1259962b9" target="_blank"><img src={navIcon1} alt="linkedInIcon" /></a>
+                <a href="https://www.facebook.com/keanu.m.teixeira" target="_blank"><img src={navIcon2} alt="facebookIcon" /></a>
+                <a href="https://www.instagram.com/keanumtei" target="_blank"><img src={navIcon3} alt="instagramIcon" /></a>
               </div>
               <a href="#contact">
                 <button className="vvd"><span>Let’s Connect</span></button>
