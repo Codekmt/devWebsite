@@ -1,69 +1,47 @@
-# Getting Started with Create React App
+About Me
 
+Hi — I’m Keanu. I recently completed a project-based intensive web development course at BeCode (2025), and I’m now building my personal projects and applying for web development roles.
+I’m passionate about clean, responsive user interfaces, efficient backend logic and creating meaningful web experiences. On top of coding I play chess, stay active and enjoy working through new challenges.
 
-## Available Scripts
+My Skill Set
 
-In the project directory, you can run
+Front-end: HTML, CSS, TailwindCSS, JavaScript, React
 
-### `npm start`
+Back-end / Full-stack: Node.js, PHP, SQL, Git, REST APIs
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Tools & Workflow: GitHub, Netlify (used for this site), VS Code, agile-mindset
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Strengths: Quick learner, hard-working, comfortable diving into new frameworks and libraries
 
-### `npm test`
+Projects
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Check out my portfolio website keanumt.dev
+ to see selected projects featuring full-stack apps, responsive design and code you can inspect.
+Here are a few highlights:
 
-### `npm run build`
+A React-based SPA showing dynamic data and interactive UI
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+A backend service (Node.js / PHP) connecting to SQL, demonstrating CRUD operations and authentication
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+A personal project site, deployed via Netlify, showcasing my design + dev workflow
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+(You can list individual project links here if you like.)
 
-### `npm run eject`
+What I’m Looking For
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+I’m currently seeking a position (or paid internship / IBO) in web development in Belgium, ideally in a team where I can grow my skills in full-stack development, and contribute to real-world applications.
+If you are looking for someone motivated, ready to learn and eager to hit the ground running — let’s talk.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Contact Me
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Email: keanumt@gmail.com
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Phone: +32 492 96 13 56
 
-## Learn More
+Feel free to reach out — I’m always open to new opportunities, collaboration or simply exchanging ideas.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Let’s Build Something Together
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+If you’re interested in working together or just want to chat about a project, drop me a line. I’d love to hear from you.
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Feel free to let me know if you’d like a different tone (more casual / more formal), or if you want to feature specific projects, skills or testimonials.

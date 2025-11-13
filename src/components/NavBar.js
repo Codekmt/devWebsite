@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import navIcon1 from '../assets/img/nav-icon1.svg';
-import navIcon2 from '../assets/img/nav-icon2.svg';
-import navIcon3 from '../assets/img/nav-icon3.svg';
+import linkedInIcon from '../assets/img/nav-icon1.svg';
+import instagramIcon from '../assets/img/nav-icon3.svg';
+import githubIcon from '../assets/img/githubIcon.png';
 
 export const NavBar = () => {
 
@@ -41,9 +41,9 @@ export const NavBar = () => {
             </Nav>
             <span className="navbar-text">
               <div className="social-icon">
-                <a href="https://www.linkedin.com/in/keanu-milho-teixeira-1259962b9" target="_blank"><img src={navIcon1} alt="linkedInIcon" /></a>
-                <a href="https://www.facebook.com/keanu.m.teixeira" target="_blank"><img src={navIcon2} alt="facebookIcon" /></a>
-                <a href="https://www.instagram.com/keanumtei" target="_blank"><img src={navIcon3} alt="instagramIcon" /></a>
+                <a href="https://www.linkedin.com/in/keanu-milho-teixeira-1259962b9" target="_blank"><img src={linkedInIcon} alt="linkedInIcon" /></a>
+                <a href="https://github.com/Codekmt" target="_blank"><img src={githubIcon} alt="githubIcon" /></a>
+                <a href="https://www.instagram.com/keanumtei" target="_blank"><img src={instagramIcon} alt="instagramIcon" /></a>
               </div>
               <a href="#contact">
                 <button className="vvd"><span>Let’s Connect</span></button>
