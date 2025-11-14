@@ -1,4 +1,4 @@
-import moulinDescapatPlaceholder from "../assets/img/moulinDescapatPlaceholder.jpeg";
+import moulinDescapatPlaceholder from "../assets/img/moulindescapatBeta.png";
 import spaceInvaders from "../assets/img/spaceInvaders.png";
 import forgeFlow from "../assets/img/forgeFlow.jpg";
 import { Container, TabContainer } from "react-bootstrap";
