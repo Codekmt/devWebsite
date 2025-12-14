@@ -43,13 +43,13 @@ export const Skills = () => {
   ];
 
   return (
-    <section className="skill py-20 bg-[#0a192f]" id="skills">
+    <section className="skill pt-20 py-20" id="skills">
       <div className="container mx-auto px-6">
         <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-6">
           Skills
         </h2>
         <p className="text-gray-300 text-center max-w-3xl mx-auto mb-10 leading-relaxed">
-          I specialize in building full stack web applications with a focus on clean, responsive design and efficient backend functionality. I develop within a robust Linux environment (EndeavourOS) and utilize a toolkit including HTML, CSS, JavaScript, React, PHP, Node.js, Express, and databases like MongoDB and MySQL. I’m comfortable with version control using Git/GitHub, deploying apps on Netlify and Vercel, and working in collaborative environments.
+          I specialize in building full stack web applications with a focus on clean, responsive design and efficient backend functionality. I develop within a robust Linux environment (Arch) and utilize a toolkit including HTML, CSS, JavaScript, React, PHP, Node.js, Express, and databases like MongoDB and MySQL. I’m comfortable with version control using Git/GitHub, deploying apps on Netlify and Vercel, and working in collaborative environments.
         </p>
 
         <Carousel
