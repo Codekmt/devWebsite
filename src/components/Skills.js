@@ -49,12 +49,7 @@ export const Skills = () => {
           Skills
         </h2>
         <p className="text-gray-300 text-center max-w-3xl mx-auto mb-10 leading-relaxed">
-          I specialize in building full stack web applications with a focus on
-          clean, responsive design and efficient backend functionality. My
-          toolkit includes HTML, CSS, JavaScript, React, PHP, Node.js, Express,
-          and databases like MongoDB and MySQL. I’m comfortable with version
-          control using Git/GitHub, deploying apps on Netlify and Vercel, and
-          working in collaborative environments.
+          I specialize in building full stack web applications with a focus on clean, responsive design and efficient backend functionality. I develop within a robust Linux environment (EndeavourOS) and utilize a toolkit including HTML, CSS, JavaScript, React, PHP, Node.js, Express, and databases like MongoDB and MySQL. I’m comfortable with version control using Git/GitHub, deploying apps on Netlify and Vercel, and working in collaborative environments.
         </p>
 
         <Carousel
