@@ -10,7 +10,8 @@ export const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [expanded, setExpanded] = useState(false);
 
-  const onUpdateActiveLink = (value) => {
+  const handleLinkClick = (link) => {
+    setActiveLink(link);
     setExpanded(false);
   };
 
@@ -33,7 +34,7 @@ export const NavBar = () => {
         const el = document.getElementById(section.id);
         if (el && scrollPos >= el.offsetTop) {
           setActiveLink(section.key);
-          onUpdateActiveLink(section.id);
+          handleLinkClick(section.id);
           break;
         }
       }
@@ -54,11 +55,6 @@ export const NavBar = () => {
     setExpanded(!expanded);
   };
 
-  const handleHomeClick = (e) => {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    setExpanded(false);
-  };
 
   return (
     <Navbar
@@ -77,7 +73,11 @@ export const NavBar = () => {
             <Nav.Link
               href="#home"
               className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'}
-              onClick={handleHomeClick}
+              onClick={(e) => { 
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+              handleLinkClick('home');
+              }}
             >
               Home
             </Nav.Link>
@@ -85,7 +85,7 @@ export const NavBar = () => {
             <Nav.Link
               href="#skills"
               className={activeLink === 'skills' ? 'active navbar-link' : 'navbar-link'}
-              onClick={() => onUpdateActiveLink('skills')}
+              onClick={() => handleLinkClick('skills')}
             >
               Skills
             </Nav.Link>
@@ -93,7 +93,7 @@ export const NavBar = () => {
             <Nav.Link
               href="#projects"
               className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'}
-              onClick={() => onUpdateActiveLink('projects')}
+              onClick={() => handleLinkClick('projects')}
             >
               Projects
             </Nav.Link>
