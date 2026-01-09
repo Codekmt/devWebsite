@@ -16,7 +16,7 @@ Strengths: Quick learner, hard-working, comfortable diving into new frameworks a
 Projects
 
 Check out my portfolio website keanumt.dev
- to see selected projects featuring full-stack apps, responsive design and code you can inspect.
+to see selected projects featuring full-stack apps, responsive design and code you can inspect.
 Here are a few highlights:
 
 A React-based SPA showing dynamic data and interactive UI
@@ -34,6 +34,8 @@ If you are looking for someone motivated, ready to learn and eager to hit the gr
 
 Contact Me
 
+Through my Website: keanumt.dev
+
 Email: keanumt@gmail.com
 
 Phone: +32 492 96 13 56
@@ -43,5 +45,3 @@ Feel free to reach out — I’m always open to new opportunities, collaboration
 Let’s Build Something Together
 
 If you’re interested in working together or just want to chat about a project, drop me a line. I’d love to hear from you.
-
-Feel free to let me know if you’d like a different tone (more casual / more formal), or if you want to feature specific projects, skills or testimonials.

@@ -42,12 +42,12 @@ export const Banner = () => {
     
 
     return (
-        <section className="banner">
+        <section className="banner" id='home'>
             <Container>
                 <Row className="align-items-center">
                     <Col xs={12} md={6} xl={7}>
-                    <span className="tagLine">Welcome to my portfolio</span>
-                    <h1>Hi, I'm Keanu<br /><span className="wrap">{text}</span></h1>
+                    <span className="tagLine">Welcome to my portfolio!</span>
+                    <h1>Hi, I'm Keanu.<br /><span className="wrap">{text}</span></h1>
                     <p>Hello! After completing a full stack development course, I’m diving into my first project and loving the experience. I’m now eager to find my first job or internship to further sharpen my skills and contribute to meaningful projects.<br /> I speak Dutch, French and English fluently so contact me how you prefer!</p>
                     <a href="#contact">
                         <button>
