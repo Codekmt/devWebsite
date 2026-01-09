@@ -5,8 +5,8 @@ import { useRef, useState } from "react";
 
 export const Contact = () => {
   const form = useRef();
-  const [status, setStatus] = useState(""); // success/error message
-  const [isSending, setIsSending] = useState(false); // disable button while sending
+  const [status, setStatus] = useState(""); 
+  const [isSending, setIsSending] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -18,7 +18,7 @@ export const Contact = () => {
       .then(
         () => {
           setStatus("Thank you! I’ll get back to you soon.");
-          form.current.reset(); // clear form
+          form.current.reset();
           setIsSending(false);
         },
         (error) => {
